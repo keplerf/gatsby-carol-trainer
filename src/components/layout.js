@@ -1,31 +1,14 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
 import "./layout.css"
+import Header from "./header"
+import Marquee from "./marquee"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+const Layout = ({ children, featuredImage, title }) => {
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header siteTitle={`Carol Almeida Personal Trainer`} />
+      <Marquee featuredImage={featuredImage} title={title} />
       <div
         style={{
           margin: `0 auto`,
@@ -36,13 +19,13 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer
           style={{
-            marginTop: `var(--space-5)`,
+            marginTop: `var(--space-6)`,
             fontSize: `var(--font-sm)`,
           }}
         >
-          © {new Date().getFullYear()} &middot; Built with
+          © {new Date().getFullYear()} &middot;
           {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          <a href="https://caroltrainer.com/">Carol Personal Trainer </a>
         </footer>
       </div>
     </>
@@ -51,6 +34,7 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  featuredImage: PropTypes.object,
 }
 
 export default Layout
