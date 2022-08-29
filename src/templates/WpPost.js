@@ -11,7 +11,6 @@ const WpPost = ({
   return (
     <Layout featuredImage={featuredImage?.node} title={title}>
       <Seo title="Home" />
-
       <div className={`post-${id}`}>
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </div>

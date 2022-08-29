@@ -22,7 +22,7 @@ const Marquee = ({ featuredImage, title }) => {
           position: "absolute",
           top: "0",
           width: "100%",
-          opacity: "0.3",
+          opacity: "0.2",
           bottom: "0",
         }}
         image={getImage(featuredImage?.gatsbyImage)}
