@@ -1,8 +1,22 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React, { ReactElement } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MarqueeWrapper } from "./styles"
-const Marquee = ({ featuredImage, title }) => {
+import { object, string } from "prop-types"
+
+const GatsbyImageProps = {
+  alt: string,
+  image: object,
+}
+const Marquee = ({
+  featuredImage,
+  title,
+}: {
+  featuredImage: {
+    altText: string
+    gatsbyImage: object
+  }
+  title: string
+}): ReactElement => {
   return (
     <MarqueeWrapper>
       <h1
@@ -17,6 +31,7 @@ const Marquee = ({ featuredImage, title }) => {
       >
         {title}
       </h1>
+      <GatsbyImage />
       <GatsbyImage
         style={{
           position: "absolute",
@@ -26,14 +41,10 @@ const Marquee = ({ featuredImage, title }) => {
           bottom: "0",
         }}
         image={getImage(featuredImage?.gatsbyImage)}
-        alt={featuredImage?.altText || "Carol Almeida Personal Trainer "}
+        alt={featuredImage?.altText || "Carol Almeida Personal Trainer"}
       />
     </MarqueeWrapper>
   )
-}
-Marquee.propTypes = {
-  featuredImage: PropTypes.object,
-  title: PropTypes.string.isRequired,
 }
 
 export default Marquee

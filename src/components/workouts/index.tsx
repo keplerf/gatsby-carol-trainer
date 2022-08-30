@@ -1,11 +1,11 @@
 import React from "react"
 
-type User = {
+interface User {
   name: string
 }
 
-function Workouts({ name }: User) {
-  return <div>Workouts - {name} </div>
+const Workouts = (props: User) => {
+  return <div>Workouts - {props.name} </div>
 }
 
 export default Workouts

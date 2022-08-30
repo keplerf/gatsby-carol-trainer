@@ -1,10 +1,18 @@
-import * as React from "react"
+import React, { ReactNode, ReactElement } from "react"
 import PropTypes from "prop-types"
 import "./layout.css"
 import Header from "./header"
 import Marquee from "./marquee"
 
-const Layout = ({ children, featuredImage, title }) => {
+const Layout = ({
+  children,
+  featuredImage,
+  title,
+}: {
+  children: ReactNode
+  featuredImage: { altText: string; gatsbyImage: object }
+  title: string
+}): ReactElement => {
   return (
     <>
       <Header siteTitle={`Carol Almeida Personal Trainer`} />
@@ -30,11 +38,6 @@ const Layout = ({ children, featuredImage, title }) => {
       </div>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-  featuredImage: PropTypes.object,
 }
 
 export default Layout
