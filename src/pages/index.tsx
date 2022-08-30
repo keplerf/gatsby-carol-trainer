@@ -1,11 +1,8 @@
 import React, { ReactElement } from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import { graphql, PageProps } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Workouts from "../components/workouts"
-import * as styles from "../components/index.module.css"
 
 type DataProps = {
   wpPage: {
