@@ -24,7 +24,7 @@
   --space-5: 32px;
   --space-6: 64px;
   --size-content: 54rem;
-  --size-gutter: var(--space-6);
+  --size-gutter: var(--space-4);
   --size-gap: var(--space-6);
 }
 html {

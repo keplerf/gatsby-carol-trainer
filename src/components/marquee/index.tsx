@@ -1,12 +1,7 @@
 import React, { ReactElement } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MarqueeWrapper } from "./styles"
-import { object, string } from "prop-types"
 
-const GatsbyImageProps = {
-  alt: string,
-  image: object,
-}
 const Marquee = ({
   featuredImage,
   title,
@@ -31,7 +26,6 @@ const Marquee = ({
       >
         {title}
       </h1>
-      <GatsbyImage />
       <GatsbyImage
         style={{
           position: "absolute",
