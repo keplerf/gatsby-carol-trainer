@@ -5,6 +5,21 @@ import Seo from "../components/seo"
 import Workouts from "../components/workouts"
 
 type DataProps = {
+  allWpPost: {
+    edges: {
+      nodes: {
+        id: number
+        content: string
+        title: string
+        featuredImage: {
+          node: {
+            altText: string
+            gatsbyImage: object
+          }
+        }
+      }
+    }
+  }
   wpPage: {
     title: string
     content: string
@@ -19,13 +34,13 @@ type DataProps = {
 }
 
 const IndexPage = ({
-  data: { wpPage },
+  data: { wpPage, allWpPost },
 }: PageProps<DataProps>): ReactElement => (
   <Layout featuredImage={wpPage.featuredImage?.node} title={wpPage.title}>
     <Seo title="Home" />
     <h1>Home Page </h1>
     <div dangerouslySetInnerHTML={{ __html: wpPage.content }} />
-    <Workouts name="keler" />
+    <Workouts posts={allWpPost} postTypes="Workout " />
   </Layout>
 )
 
@@ -43,7 +58,34 @@ export const query = graphql`
       featuredImage {
         node {
           altText
-          gatsbyImage(placeholder: BLURRED, width: 10000, formats: [JPG])
+          gatsbyImage(
+            placeholder: BLURRED
+            width: 1000
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
+      }
+    }
+    allWpPost(
+      filter: {
+        categories: { nodes: { elemMatch: { id: { eq: "dGVybTo4" } } } }
+      }
+    ) {
+      edges {
+        node {
+          id
+          excerpt
+          title
+          featuredImage {
+            node {
+              altText
+              gatsbyImage(
+                placeholder: BLURRED
+                width: 400
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
         }
       }
     }
