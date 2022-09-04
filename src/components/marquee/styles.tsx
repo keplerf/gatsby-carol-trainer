@@ -12,9 +12,19 @@ export const MarqueeWrapper = styled.section`
     rgba(0, 121, 177, 1) 0%,
     rgba(0, 0, 0, 1) 100%
   );
-  min-height: 40vh;
+  min-height: 50vh;
+  margin: 0 -30px;
+  transform: rotate(359deg);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* box-shadow: 0px 22px 32px -18px rgba(0, 0, 0, 0.75); */
+
+  & > :first-child {
+    transform: rotate(1deg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--size-gutter) 0;
+  }
 `

@@ -198,6 +198,15 @@ acronym {
   border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
   cursor: help;
 }
+
+.blocks-gallery-grid {
+  display: flex;
+  gap: var(--size-gutter);
+  margin: 0;
+}
+.blocks-gallery-item {
+  list-style: none;
+}
 tt,
 code {
   background-color: var(--color-code-bg);

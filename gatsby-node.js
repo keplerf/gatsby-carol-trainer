@@ -30,7 +30,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   if (allWpPost.nodes.length) {
     allWpPost.nodes.map(post => {
       actions.createPage({
-        path: `personal-trainer-article${post.uri}`,
+        path: post.uri,
         component: template,
         context: post,
       })

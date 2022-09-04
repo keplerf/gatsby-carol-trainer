@@ -76,6 +76,7 @@ export const query = graphql`
           id
           excerpt
           title
+          uri
           featuredImage {
             node {
               altText

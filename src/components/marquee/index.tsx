@@ -17,7 +17,7 @@ const Marquee = ({
       <h1
         style={{
           zIndex: "2",
-          fontSize: "10vw",
+          fontSize: "4vw",
           lineHeight: "9vw",
           color: "white",
           textShadow: "5px 5px 3px rgb(0 0 0 / 20%)",
