@@ -1,10 +1,11 @@
 :root {
   --border-radius: 4px;
   --color-text: #333;
-  --color-primary: #7026b9;
+  --color-primary: #1677a7;
+  --color-contrast: #ceff00;
   --color-code-bg: #fff4db;
   --color-code: #8a6534;
-  --color-marquee-bg: #000000;
+  --color-marquee-bg: var(--color-primary);
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
@@ -236,4 +237,11 @@ pre tt:after {
 
 .wp-block-embed__wrapper iframe {
   width: 100%;
+}
+
+.video-container {
+  width: 100vw;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
 }

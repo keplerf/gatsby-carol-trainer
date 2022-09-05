@@ -20,9 +20,10 @@ export const Post = styled.div`
     }
 
     h3 {
-      color: var(--color-primary);
+      color: var(--color-contrast);
       position: absolute;
-      background: var(--color-marquee-bg);
+
+      background: #333333b3;
       top: var(--space-2);
       right: calc(var(--space-2) * -1);
       left: var(--space-2);

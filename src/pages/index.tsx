@@ -38,7 +38,7 @@ const IndexPage = ({
 }: PageProps<DataProps>): ReactElement => (
   <Layout featuredImage={wpPage.featuredImage?.node} title={wpPage.title}>
     <Seo title="Home" />
-    <h1>Home Page </h1>
+    {/* <h1>Home Page </h1> */}
     <div dangerouslySetInnerHTML={{ __html: wpPage.content }} />
     <Workouts posts={allWpPost} postTypes="Workout " />
   </Layout>
@@ -51,6 +51,9 @@ export const query = graphql`
     wpPage(isFrontPage: { eq: true }) {
       id
       title
+      dynamic {
+        videoId
+      }
       template {
         templateName
       }
