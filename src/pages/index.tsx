@@ -38,7 +38,6 @@ const IndexPage = ({
 }: PageProps<DataProps>): ReactElement => (
   <Layout featuredImage={wpPage.featuredImage?.node} title={wpPage.title}>
     <Seo title="Home" />
-    {/* <h1>Home Page </h1> */}
     <div dangerouslySetInnerHTML={{ __html: wpPage.content }} />
     <Workouts posts={allWpPost} postTypes="Workout " />
   </Layout>
@@ -63,7 +62,7 @@ export const query = graphql`
           altText
           gatsbyImage(
             placeholder: BLURRED
-            width: 1000
+            width: 800
             formats: [AUTO, WEBP, AVIF]
           )
         }
@@ -85,7 +84,7 @@ export const query = graphql`
               altText
               gatsbyImage(
                 placeholder: BLURRED
-                width: 400
+                width: 250
                 formats: [AUTO, WEBP, AVIF]
               )
             }

@@ -2,7 +2,26 @@ import React, { ReactElement } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { ImageWrapper, Post, PostWrapper } from "./styles"
 import { Link } from "gatsby"
-const Workouts = ({ posts, postTypes }) => {
+
+type WorkoutsType = {
+  postTypes?: string
+  posts: {
+    edges: [
+      {
+        node: {
+          id: number | string
+          excerpt: string
+          title: string
+          uri: string
+          featuredImage: {
+            node: { altText: string; gatsbyImage: object }
+          }
+        }
+      }
+    ]
+  }
+}
+const Workouts = ({ posts, postTypes }: WorkoutsType): ReactElement => {
   const { edges } = posts
 
   return (
@@ -12,7 +31,7 @@ const Workouts = ({ posts, postTypes }) => {
         {edges.map((item, key) => {
           const post = item.node
           const featuredImage = getImage(
-            item.node.featuredImage?.node.gatsbyImage
+            item.node.featuredImage.node.gatsbyImage || undefined
           )
           return (
             <Post key={key}>
@@ -21,12 +40,13 @@ const Workouts = ({ posts, postTypes }) => {
                   <GatsbyImage
                     image={featuredImage}
                     alt={
-                      featuredImage?.altText || "Carol Almeida Personal Trainer"
+                      featuredImage?.node?.altText ||
+                      "Carol Almeida Personal Trainer"
                     }
                   />
                 </ImageWrapper>
                 <h3> {post.title}</h3>
-                <article dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+                {/* <article dangerouslySetInnerHTML={{ __html: post.excerpt }} /> */}
               </Link>
             </Post>
           )
