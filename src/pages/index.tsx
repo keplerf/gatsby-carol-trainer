@@ -36,10 +36,14 @@ type DataProps = {
 const IndexPage = ({
   data: { wpPage, allWpPost },
 }: PageProps<DataProps>): ReactElement => (
-  <Layout featuredImage={wpPage.featuredImage?.node} title={wpPage.title}>
+  <Layout
+    featuredImage={wpPage.featuredImage?.node}
+    title={wpPage.title}
+    isHome={true}
+  >
     <Seo title="Home" />
     <div dangerouslySetInnerHTML={{ __html: wpPage.content }} />
-    <Workouts posts={allWpPost} postTypes="Workout " />
+    <Workouts posts={allWpPost.edges} postTypes="Workout " />
   </Layout>
 )
 

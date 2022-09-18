@@ -3,12 +3,15 @@ import "../layout.css"
 
 export const MarqueeContent = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
   transform: rotate(1deg);
-  max-width: 1200px;
-  margin: 0 auto -10px;
   padding: 0 0 var(--size-gutter) var(--size-gutter);
   z-index: 9;
+
+  &.isHome {
+    grid-template-columns: 1fr 1fr;
+    max-width: 1200px;
+    margin: 0 auto -10px;
+  }
 
   & > :first-child {
     display: flex;
@@ -50,6 +53,7 @@ export const MarqueeContent = styled.div`
 
 export const MarqueConatiner = styled.div`
   position: relative;
+  overflow: hidden;
 `
 
 export const MarqueeWrapper = styled.section`
@@ -63,7 +67,6 @@ export const MarqueeWrapper = styled.section`
     var(--color-primary) 0%,
     rgba(0, 0, 0, 1) 100%
   );
-
   min-height: 70vh;
   margin: 0 -30px;
   transform: rotate(359deg);

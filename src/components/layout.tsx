@@ -8,20 +8,23 @@ const Layout = ({
   children,
   featuredImage,
   title,
+  isHome,
 }: {
   children: ReactNode
   featuredImage: { altText: string; gatsbyImage: object }
   title: string
+  isHome: boolean
 }): ReactElement => {
   return (
     <>
       <Header siteTitle={`Carol Almeida Personal Trainer`} />
-      <Marquee featuredImage={featuredImage} title={title} />
+      <Marquee featuredImage={featuredImage} title={title} isHome={isHome} />
       <div
         style={{
           margin: `0 auto`,
           maxWidth: `var(--size-content)`,
           padding: `var(--size-gutter)`,
+          width: "100%",
         }}
       >
         <main>{children}</main>

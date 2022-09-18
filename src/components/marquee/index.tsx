@@ -6,40 +6,48 @@ import Youtube from "../youtube"
 const Marquee = ({
   featuredImage,
   title,
+  isHome,
 }: {
   featuredImage: {
     altText: string
     gatsbyImage: object
   }
   title: string
+  isHome: boolean
 }): ReactElement => {
   return (
     <MarqueConatiner>
       <MarqueeWrapper>
-        <MarqueeContent>
+        <MarqueeContent className={isHome ? "isHome" : ""}>
           <section>
-            <h1>{title}</h1>
-            <h2>Personal Trainer</h2>
-            <p>
-              Workouts <span>/</span> In-person Training <span>/</span> Fitness
-              Programs
-            </p>
+            {isHome ? <h1>{title}</h1> : <h2>{title}</h2>}
+            {isHome && (
+              <div>
+                <h2>Personal Trainer</h2>
+                <p>
+                  Workouts <span>/</span> In-person Training <span>/</span>{" "}
+                  Fitness Programs
+                </p>
+              </div>
+            )}
           </section>
-          <StaticImage
-            placeholder="blurred"
-            src="../../images/Carol-Almeida-personal-trainer.png"
-            // loading="eager"
-            width={550}
-            quality={55}
-            formats={["auto", "webp", "avif"]}
-            alt="Carol Almeida Personal Trainer"
-            style={{
-              top: "0",
-              right: "0",
-              width: "100%",
-              zIndex: 4,
-            }}
-          />
+          {isHome && (
+            <StaticImage
+              placeholder="blurred"
+              src="../../images/Carol-Almeida-personal-trainer.png"
+              // loading="eager"
+              width={550}
+              quality={55}
+              formats={["auto", "webp", "avif"]}
+              alt="Carol Almeida Personal Trainer"
+              style={{
+                top: "0",
+                right: "0",
+                width: "100%",
+                zIndex: 4,
+              }}
+            />
+          )}
         </MarqueeContent>
         <GatsbyImage
           style={{
@@ -53,7 +61,7 @@ const Marquee = ({
           image={getImage(featuredImage?.gatsbyImage)}
           alt={featuredImage?.altText || "Carol Almeida Personal Trainer"}
         />
-        <Youtube />
+        {isHome && <Youtube />}
       </MarqueeWrapper>
     </MarqueConatiner>
   )

@@ -5,30 +5,38 @@ import { Link } from "gatsby"
 
 type WorkoutsType = {
   postTypes?: string
-  posts: {
-    edges: [
-      {
-        node: {
-          id: number | string
-          excerpt: string
-          title: string
-          uri: string
-          featuredImage: {
-            node: { altText: string; gatsbyImage: object }
-          }
+  posts: [
+    {
+      node: {
+        id: number | string
+        excerpt: string
+        title: string
+        uri: string
+        featuredImage: {
+          node: { altText: string; gatsbyImage: object }
         }
       }
-    ]
+    }
+  ]
+}
+
+type PostType = {
+  node: {
+    id: number | string
+    excerpt: string
+    title: string
+    uri: string
+    featuredImage: {
+      node: { altText: string; gatsbyImage: object }
+    }
   }
 }
 const Workouts = ({ posts, postTypes }: WorkoutsType): ReactElement => {
-  const { edges } = posts
-
   return (
     <>
-      <h2>{postTypes} - Posts</h2>
+      <h2>{postTypes}</h2>
       <PostWrapper>
-        {edges.map((item, key) => {
+        {posts.map((item, key) => {
           const post = item.node
           const featuredImage = getImage(
             item.node.featuredImage.node.gatsbyImage || undefined
