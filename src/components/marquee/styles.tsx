@@ -62,11 +62,7 @@ export const MarqueeWrapper = styled.section`
   padding: var(--size-gutter);
   position: relative;
   background-color: var(--color-marquee-bg);
-  background: linear-gradient(
-    148deg,
-    var(--color-primary) 0%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  background: linear-gradient(148deg, #39beff 0%, rgba(0, 0, 0, 1) 100%);
   min-height: 70vh;
   margin: 0 -30px;
   transform: rotate(359deg);
@@ -109,7 +105,7 @@ export const MarqueeWrapper = styled.section`
     transform: translate(-50%, -50%);
     pointer-events: none;
     z-index: 1;
-    opacity: 0.2;
+    opacity: 0.15;
   }
 
   @media (min-aspect-ratio: 16/9) {

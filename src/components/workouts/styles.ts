@@ -2,13 +2,13 @@ import styled from "styled-components"
 import "../layout.css"
 
 export const PostWrapper = styled.div`
-  display: grid;
-  gap: calc(2.3 * var(--size-gutter)) var(--size-gutter);
-  grid-template-columns: 1fr 1fr 1fr;
+  .swiper-button-prev {
+  }
 `
 export const Post = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: block;
+
+  margin: 20px 10px;
 
   & > a {
     text-decoration: none;
